@@ -1,0 +1,25 @@
+{
+  "name": "native-timepicker",
+  "version": "0.1.0",
+  "description": "A native time picker",
+  "main": "lib/index.js",
+  "author": "saai",
+  "license": "MIT",
+  "scripts": {
+    "dist": "mkdirp dist",
+    "build:js": "terser lib/index.js -o dist/native-timepicker.min.js",
+    "build:css": "cleancss lib/index.css -o dist/native-timepicker.min.css",
+    "build": "npm run dist && npm run build:js && npm run build:css",
+    "dev": "watch 'npm run build' ./lib/",
+    "serve": "serve -s .",
+    "start": "concurrently \"npm:serve\" \"npm:dev\""
+  },
+  "devDependencies": {
+    "mkdirp": "3.0.1",
+    "terser": "5.30.3",
+    "clean-css-cli": "5.3.3",
+    "watch": "1.0.2",
+    "serve": "14.2.1",
+    "concurrently": "^8.2.2"
+  }
+}
